@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+{% if error %}
+  hello
+{% else %}
+<div id="category_container">
+  {% for category in categories %}
+    <p> <a href="{{category.resource_uri}}"> {{category.short_name}} </a> <p>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}
