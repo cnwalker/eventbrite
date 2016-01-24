@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div> {% if location %} {{location}} {% endif %} </div>
+
+{% for event in events %}
+<div>
+    {{event.name.text}}
+    {{event.currency}}
+    <br></br>
+</div>
+
+{% endfor %}
+
+<span>
+
+{% if prev_page %}
+<a href="/events/?category_ids={{category_ids}}&location={{location}}&page={{prev_page}}"> previous page </a>
+{% endif %}
+
+{% if next_page %}
+<a href="/events/?category_ids={{category_ids}}&location={{location}}&page={{next_page}}"> next page </a>
+{% endif %}
+
+</span>
+
+{% endblock %}

@@ -13,5 +13,5 @@ urlpatterns = patterns('',
     url(r'^$', eventfinder.views.index, name='index'),
     url(r'^db', eventfinder.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
-
+    url(r'^events/', eventfinder.views.events, name='events'),
 )
