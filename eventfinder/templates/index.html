@@ -5,10 +5,13 @@
 {% if error %}
   hello
 {% else %}
+
 <div id="category_container">
-  {% for category in categories %}
-    <p> <a href="{{category.resource_uri}}"> {{category.short_name}} </a> <p>
-  {% endfor %}
+  <form action="/" method="post">
+    {% csrf_token %}
+    {{ category_form }}
+    <input type="submit" value="Submit" />
+  </form>
 </div>
 {% endif %}
 
