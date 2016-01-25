@@ -3,27 +3,71 @@
 
 {% block content %}
 
-<div> {% if location %} {{location}} {% endif %} </div>
+{% if events %}
+<div class="row">
+  <div class="large-4 large-centered columns">
+    <p class="event_display_header" align="center"> Showing results for {{location}} ({{total_pages}} pages):</p>
+  </div>
 
-{% for event in events %}
-<div>
-    {{event.name.text}}
-    {{event.currency}}
-    <br></br>
+  <div class="row">
+    <div align="center">
+      <span>
+        {% if prev_page %}
+          <a class="button prev_page" href="/events/?category_ids={{category_ids}}&location={{location}}&page={{prev_page}}">
+            Previous Page
+          </a>
+        {% endif %}
+        {% if next_page %}
+          <a class="button" href="/events/?category_ids={{category_ids}}&location={{location}}&page={{next_page}}">
+            Next Page
+          </a>
+        {% endif %}
+      </span>
+    </div>
+  </div>
+
+  {% for event in events %}
+      <div class="row single_event">
+        <div class="large-11 large-centered columns">
+          <div class="event_image">
+            {% if event.logo %}
+              <a href="{{event.url}}"><img src="{{event.logo.url}}"/></a>
+            {% endif %}
+          </div>
+          <p>
+            <a href="{{event.url}}">{{event.name.text}}</a>
+            <br>
+            {% if event.venue %}
+              {{event.venue.name}} {{event.venue.address_1}}
+            {% endif %}
+            <br>
+            {{event.start.local}}
+          </p>
+        </div>
+      </div>
+  {% endfor %}
+
+{% else %}
+    <p align="center"> No results found for {{location}} </p>
+{% endif %}
+  </div>
 </div>
-
-{% endfor %}
-
-<span>
-
-{% if prev_page %}
-<a href="/events/?category_ids={{category_ids}}&location={{location}}&page={{prev_page}}"> previous page </a>
-{% endif %}
-
-{% if next_page %}
-<a href="/events/?category_ids={{category_ids}}&location={{location}}&page={{next_page}}"> next page </a>
-{% endif %}
-
-</span>
+<div class="row">
+  <div align="center">
+    <span>
+      {% if prev_page %}
+        <a align="center" class="prev_page" href="/events/?category_ids={{category_ids}}&location={{location}}&page={{prev_page}}">
+          previous page
+        </a>
+      {% endif %}
+      {% if next_page %}
+        <a align="center" href="/events/?category_ids={{category_ids}}&location={{location}}&page={{next_page}}">
+          next page
+        </a>
+      {% endif %}
+    </span>
+      <p align="center"> Displaying page {{current_page}} of {{total_pages}} for {{location}} </p>
+  </div>
+</div>
 
 {% endblock %}

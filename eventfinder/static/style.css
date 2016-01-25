@@ -1,1 +1,57 @@
+.prev_page {
+  margin-right: 1%;
+}
 
+.title_page_link {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.top-bar {
+  background-color: #FA8C32;
+}
+
+.on_events_page {
+  border-bottom: solid 7px #2199E8;
+}
+
+ul.menu {
+  background-color: #FFF;
+  border-radius: 1em;
+}
+
+.callout.primary {
+  background-color: #2199E8;
+  /* border-bottom: 7px solid #FA8C32; */
+}
+
+.input[type=text]{
+  border-radius: 1em;
+}
+
+.subheader {
+  color: #FFF;
+}
+
+.error {
+  color: red;
+}
+
+.event_image {
+  float: left;
+  margin-right: 5px;
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.single_event {
+  padding: 5px;
+  max-height: 90%;
+  max-width: 90%
+  margin-bottom: 2%;
+}
+
+.event_display_header {
+  font-weight: bold;
+  margin-top: 1%;
+}

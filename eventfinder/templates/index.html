@@ -2,17 +2,38 @@
 {% load staticfiles %}
 
 {% block content %}
-{% if error %}
-  hello
-{% else %}
 
-<div id="category_container">
-  <form action="/" method="post">
-    {% csrf_token %}
-    {{ category_form }}
-    <input type="submit" value="Submit" />
-  </form>
+<div class="callout large primary">
+  <div class="row column text-center">
+    <h1>Find Events</h1>
+    <h2 class="subheader">You may select up to three categories</h2>
+  </div>
 </div>
+
+<hr>
+
+{% if error %}
+  <p align="center" class="error"> {{error}} </p>
 {% endif %}
 
+<div class="row">
+  <div class="small-7 small-centered columns">
+    <div id="category_container">
+      <form action="/" method="post">
+        {% csrf_token %}
+        {% for field in category_form %}
+          {% if field.label == 'Location' %}
+              {{field.errors}}
+              {{field.label}}
+              {{ field }}
+          {% else %}
+              {{ field.errors }}
+              {{ field.label }} {{ field }}
+          {% endif %}
+        {% endfor %}
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </div>
+</body>
 {% endblock %}
