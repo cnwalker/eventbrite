@@ -1,3 +1,16 @@
+input[type=text]{
+  border-radius: 0.7em;
+}
+
+ul.menu {
+  background-color: #FFF;
+  border-radius: 1em;
+}
+
+ul {
+  list-style-type: none;
+}
+
 .prev_page {
   margin-right: 1%;
 }
@@ -13,11 +26,6 @@
 
 .on_events_page {
   border-bottom: solid 7px #2199E8;
-}
-
-ul.menu {
-  background-color: #FFF;
-  border-radius: 1em;
 }
 
 .callout.primary {

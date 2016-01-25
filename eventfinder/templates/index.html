@@ -5,8 +5,8 @@
 
 <div class="callout large primary">
   <div class="row column text-center">
-    <h1>Find Events</h1>
-    <h2 class="subheader">You may select up to three categories</h2>
+    <h1>Join the fun</h1>
+    <h2 class="subheader"> Find events with EventFinder </h2>
   </div>
 </div>
 
@@ -27,11 +27,12 @@
               {{field.label}}
               {{ field }}
           {% else %}
-              {{ field.errors }}
-              {{ field.label }} {{ field }}
+              <p align="center" class="event_display_header"> Please select up to three categories: </p>
+                {{ field.errors }}
+                <div class="">{{ field }}</div>
           {% endif %}
         {% endfor %}
-        <input type="submit" value="Submit" />
+        <input class="button" type="submit" value="Submit" />
       </form>
     </div>
   </div>
